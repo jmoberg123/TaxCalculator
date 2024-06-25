@@ -57,8 +57,8 @@ namespace TaxCalculatorInterviewTests
         /// </summary>
         public double GetCurrentTaxRate(Commodity commodity)
         {
-            //TODO: implement
-            throw new NotImplementedException();
+            return _customTaxRateRepository.GetCurrentCustomTaxRateByCommodity(commodity)?.Rate
+                   ?? _taxRateRepository.GetTaxRateByCommodity(commodity).Rate;
         }
     }
 }
