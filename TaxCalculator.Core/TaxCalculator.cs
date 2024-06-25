@@ -17,6 +17,7 @@ namespace TaxCalculatorInterviewTests
     public class TaxCalculator : ITaxCalculator
     {
         private readonly TaxRateRepository _taxRateRepository = new();
+        private readonly CustomTaxRateRepository _customTaxRateRepository = new(new Clock());
 
         /// <summary>
         /// Get the standard tax rate for a specific commodity.
@@ -34,11 +35,8 @@ namespace TaxCalculatorInterviewTests
         /// </summary>
         public void SetCustomTaxRate(Commodity commodity, double rate)
         {
-            //TODO: support saving multiple custom rates for different combinations of Commodity/DateTime
-            //TODO: make sure we never save duplicates, in case of e.g. clock resets, DST etc - overwrite old values if this happens
-            _customRates[commodity] = Tuple.Create(DateTime.Now, rate);
+            _customTaxRateRepository.Add(commodity, rate);
         }
-        static Dictionary<Commodity, Tuple<DateTime, double>> _customRates = new Dictionary<Commodity, Tuple<DateTime, double>>();
 
 
         /// <summary>
