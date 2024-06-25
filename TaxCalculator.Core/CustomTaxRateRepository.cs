@@ -22,6 +22,12 @@ public class CustomTaxRateRepository(IClock clock)
         _customTaxRates.Add(customTaxRateToAdd);
     }
 
+    public CustomTaxRate? GetCurrentCustomTaxRateByCommodity(Commodity commodity)
+    {
+        return _customTaxRates.Where(x => x.Commodity == commodity)
+            .MaxBy(x => x.TimeStamp);
+    }
+
     public IEnumerable<CustomTaxRate> GetAll()
     {
         return _customTaxRates;
