@@ -16,27 +16,14 @@ namespace TaxCalculatorInterviewTests
     /// </summary>
     public class TaxCalculator : ITaxCalculator
     {
+        private readonly TaxRateRepository _taxRateRepository = new();
+
         /// <summary>
         /// Get the standard tax rate for a specific commodity.
         /// </summary>
         public double GetStandardTaxRate(Commodity commodity)
         {
-            if (commodity == Commodity.Default)
-                return 0.25;
-            if (commodity == Commodity.Alcohol)
-                return 0.25;
-            if (commodity == Commodity.Food)
-                return 0.12;
-            if (commodity == Commodity.FoodServices)
-                return 0.12;
-            if (commodity == Commodity.Literature)
-                return 0.6;
-            if (commodity == Commodity.Transport)
-                return 0.6;
-            if (commodity == Commodity.CulturalServices)
-                return 0.6;
-
-            return 0.25;
+            return _taxRateRepository.GetTaxRateByCommodity(commodity).Rate;
         }
 
 
