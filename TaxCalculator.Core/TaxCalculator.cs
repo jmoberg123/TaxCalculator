@@ -46,8 +46,8 @@ namespace TaxCalculatorInterviewTests
         /// </summary>
         public double GetTaxRateForDateTime(Commodity commodity, DateTime date)
         {
-            //TODO: implement
-            throw new NotImplementedException();
+            return _customTaxRateRepository.GetCustomTaxRateByCommodityAndDate(commodity, date)?.Rate
+                   ?? _taxRateRepository.GetTaxRateByCommodity(commodity).Rate;
         }
 
         /// <summary>
