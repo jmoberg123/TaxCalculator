@@ -80,4 +80,26 @@ public class CustomTaxRateRepositoryTests
         //Assert
         result.Should().BeEquivalentTo(new CustomTaxRate(commodity, 0.2, new DateTime(2024, 06, 25)));
     }
+
+    [Test]
+    public void GetCustomTaxRateByCommodityAndTimeStamp_ShouldGetTheCustomTaxRateForTheCommodityWithTheLatestMatchingDate()
+    {
+        //Arrange
+        const Commodity commodity = Commodity.Alcohol;
+
+        _clock.Now.Returns(new DateTime(2024, 06, 23));
+        _customTaxRateRepository.Add(commodity, 0.1);
+
+        _clock.Now.Returns(new DateTime(2024, 06, 24));
+        _customTaxRateRepository.Add(commodity, 0.2);
+
+        _clock.Now.Returns(new DateTime(2024, 06, 26));
+        _customTaxRateRepository.Add(commodity, 0.3);
+
+        //Act
+        var result = _customTaxRateRepository.GetCustomTaxRateByCommodityAndDate(commodity, new DateTime(2024, 06, 25, 23, 59, 0));
+
+        //Assert
+        result.Should().BeEquivalentTo(new CustomTaxRate(commodity, 0.2, new DateTime(2024, 06, 24)));
+    }
 }

@@ -28,6 +28,13 @@ public class CustomTaxRateRepository(IClock clock)
             .MaxBy(x => x.TimeStamp);
     }
 
+    public CustomTaxRate? GetCustomTaxRateByCommodityAndDate(Commodity commodity, DateTime date)
+    {
+        return _customTaxRates.Where(x => x.Commodity == commodity
+            && x.TimeStamp <= date)
+            .MaxBy(x => x.TimeStamp);
+    }
+
     public IEnumerable<CustomTaxRate> GetAll()
     {
         return _customTaxRates;
