@@ -1,4 +1,4 @@
-﻿namespace TaxCalculatorInterviewTests;
+﻿namespace TaxCalculator.Core;
 
 public interface IClock
 {

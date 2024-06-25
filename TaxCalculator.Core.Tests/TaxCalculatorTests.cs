@@ -1,9 +1,8 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
-using TaxCalculatorInterviewTests;
 
 namespace TaxCalculator.Core.Tests;
-using TaxCalculator = TaxCalculatorInterviewTests.TaxCalculator;
+using TaxCalculator = TaxCalculator;
 
 public class TaxCalculatorTests
 {

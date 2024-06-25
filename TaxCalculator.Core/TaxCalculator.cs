@@ -1,6 +1,6 @@
 ﻿//The focus should be on clean, simple and easy to read code
 //Everything but the public interface may be changed
-namespace TaxCalculatorInterviewTests
+namespace TaxCalculator.Core
 {
     /// <summary>
     /// Implements a tax calculator for our client.

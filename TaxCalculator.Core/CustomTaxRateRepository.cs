@@ -1,4 +1,4 @@
-﻿namespace TaxCalculatorInterviewTests;
+﻿namespace TaxCalculator.Core;
 
 public class CustomTaxRateRepository(IClock clock)
 {

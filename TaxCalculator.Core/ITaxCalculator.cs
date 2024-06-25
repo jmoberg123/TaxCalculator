@@ -1,4 +1,4 @@
-﻿namespace TaxCalculatorInterviewTests;
+﻿namespace TaxCalculator.Core;
 
 /// <summary>
 /// This is the public inteface used by our client and may not be changed
