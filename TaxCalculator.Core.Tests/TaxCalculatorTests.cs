@@ -20,9 +20,9 @@ public class TaxCalculatorTests
     [TestCase(Commodity.Alcohol, 0.25)]
     [TestCase(Commodity.Food, 0.12)]
     [TestCase(Commodity.FoodServices, 0.12)]
-    [TestCase(Commodity.Literature, 0.6)]
-    [TestCase(Commodity.Transport, 0.6)]
-    [TestCase(Commodity.CulturalServices, 0.6)]
+    [TestCase(Commodity.Literature, 0.06)]
+    [TestCase(Commodity.Transport, 0.06)]
+    [TestCase(Commodity.CulturalServices, 0.06)]
     public void GetStandardTaxRate_ShouldReturnExpectedRates(Commodity commodity, double expectedRate)
     {
         //Act

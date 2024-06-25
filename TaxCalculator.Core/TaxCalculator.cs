@@ -7,7 +7,6 @@ namespace TaxCalculatorInterviewTests
     /// The calculator has a set of standard tax rates that are hard-coded in the class.
     /// It also allows our client to remotely set new, custom tax rates.
     /// Finally, it allows the fetching of tax rate information for a specific commodity and point in time.
-    /// TODO: We know there are a few bugs in the code below, since the calculations look messed up every now and then.
     /// </summary>
     public class TaxCalculator : ITaxCalculator
     {
