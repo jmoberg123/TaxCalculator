@@ -7,17 +7,6 @@ using System.Linq;
 namespace TaxCalculatorInterviewTests
 {
     /// <summary>
-    /// This is the public inteface used by our client and may not be changed
-    /// </summary>
-    public interface ITaxCalculator
-    {
-        double GetStandardTaxRate(Commodity commodity);
-        void SetCustomTaxRate(Commodity commodity, double rate);
-        double GetTaxRateForDateTime(Commodity commodity, DateTime date);
-        double GetCurrentTaxRate(Commodity commodity);
-    }
-
-    /// <summary>
     /// Implements a tax calculator for our client.
     /// The calculator has a set of standard tax rates that are hard-coded in the class.
     /// It also allows our client to remotely set new, custom tax rates.
